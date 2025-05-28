@@ -12,7 +12,7 @@ We're going to establish our high level domain vocabulary through an interview s
 
 ## Defining our Domain Vocabulary
 
-Why are we here?  Because a Disaster has ocurred, and people need to be rescued.
+Why are we here?  Because a Disaster has occurred, and people need to be rescued.
 
 This application is implementing a fictional system based on the coordination of rescue operations loosely termed the Cajun Navy: [https://en.wikipedia.org/wiki/Cajun_Navy](https://en.wikipedia.org/wiki/Cajun_Navy).  It's origins go back to Hurricane Katrina in 2005.
 
