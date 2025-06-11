@@ -4,19 +4,19 @@ This work is inspired by, and principally based on [Emergency Response Demo](htt
 
 I am doing this re-write for my own education.  If you want to come along on the journey, we're going to use the principles of Domain Driven Design to create an application that is deployed across three "regions" for maximum resiliency.
 
-Along the way, we'll be using OpenShift as our cloud platform, Cassandra for persistence, Kafka for eventing, and the Quarkus Java framework for coding.
+We'll be using OpenShift as our cloud platform and the Quarkus Java framework for coding.
 
 But, first things first.  Let's talk about our Domains and establish a common domain vocabulary.
 
 We're going to establish our high level domain vocabulary through an interview style conversation, with questions which result in answers that define a vocabulary word for our Domains.
 
-## Defining our Domain Vocabulary
-
-Why are we here?  Because a Disaster has occurred, and people need to be rescued.
-
 This application is implementing a fictional system based on the coordination of rescue operations loosely termed the Cajun Navy: [https://en.wikipedia.org/wiki/Cajun_Navy](https://en.wikipedia.org/wiki/Cajun_Navy).  It's origins go back to Hurricane Katrina in 2005.
 
 The scenario is that a flood disaster of some sort has occurred and volunteer resources with boats are needed to carry out immediate rescue operations.
+
+## Defining our Domain Vocabulary
+
+Why are we here?  Because a Disaster has occurred, and people need to be rescued.
 
 __Question__: What is a disaster?
 
@@ -90,7 +90,7 @@ Let's build an app to help realize that goal.
 
 1. Register one or more `Shelters` associated with an `Impact Zone`.
 
-1. `Victims` are registered for assistance.
+1. Register `Victims` for assistance.
 
 1. `Responders` indicate their availability to help `Victims`
 
@@ -106,24 +106,40 @@ Let's build an app to help realize that goal.
 
 1. A `Responder` completes a `Mission` by traveling to the location of the `Incident`, retrieving the `Victims`, and moving them to the assigned `Shelter`
 
-## The Domain Aggregates
+## The Domain Aggregates.  
+
+These will be the microservices that we will build.
 
 ### Disaster
 
-The `Disaster` aggregate defines the geographical boundaries of the area affected by the disaster.  
-
-`Disaster` maintains a relationship with:
-
-* Impact Zones
-* Registered `Shelters`
-* Registered `Responders`
-* Registered `Victims`
+The `Disaster` aggregate defines the geographical boundaries of the area affected by a disaster.  
 
 A `Disaster` has the following entities:
 
 | Entity | Description |
 | --- | --- |
-| `Impact Zone` | A geographical region where `Incidents` are likely to be registered |
+| `Disaster` | A record of the active `Disasters` |
+| `Impact Zone` | A geographical region associated with a `Disaster` where `Incidents` are likely to be registered |
+
+### Shelter
+
+The `Shelter` aggregate manages the locations of safety and shelter that serve an `Impact Zone` associated with a `Disaster`
+
+The `Shelter` aggregate has the following entities:
+
+| Entity | Description |
+| --- | --- |
 | `Shelter` | A facility that can accept `Victims` |
+
+### Mission
+
+The `Mission` aggregate manages the rescue operations of `Responders` transporting `Victims` to `Shelters`
+
+The `Mission` aggregate has the following entities:
+
+| Entity | Description |
+| --- | --- |
+| `Mission` | A geographical region where `Incidents` are likely to be registered |
+| `Incident` | A facility that can accept `Victims` |
 | `Responder` | A rescue team with the skills and resources to rescue `Victims` |
 | `Victim` | An individual impacted by the disaster and in need of rescue |
