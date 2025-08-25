@@ -2,7 +2,7 @@
 
 This work is inspired by, and principally based on [Emergency Response Demo](https://erdemo.io).  For a working application, follow that link.
 
-I am doing this re-write for my own education.  If you want to come along on the journey, we're going to use the principles of Domain Driven Design to create an application that is deployed across three "regions" for maximum resiliency.
+I am doing this re-write for my own education, and to test different combinations of code assistant and LLM.
 
 We'll be using OpenShift as our cloud platform and the Quarkus Java framework for coding.
 
@@ -141,6 +141,7 @@ The `Shelter` aggregate has the following entities:
 | Entity | Description |
 | --- | --- |
 | `Shelter` | A facility that can accept `Victims` |
+| `Victim`  | An individual assigned to the `Shelter` |
 
 ### Mission
 
@@ -150,7 +151,10 @@ The `Mission` aggregate has the following entities:
 
 | Entity | Description |
 | --- | --- |
-| `Mission` | An `Incident` associated with a Shelter.  The `Victims` associated with the `Incident` will be transported to the `Shelter` by a `Responder` |
+| `Mission` | A `Mission` is an `Incident` associated with a Shelter.  The `Victims` associated with the `Incident` will be transported to the `Shelter` by a `Responder` |
+| `Incident`| An `Incident` is the group of `Victims` that the `Responder` will manage as a unit of work|
+| `Victim`  | An individual that is grouped as part of an `Incident` assigned to a `Mission` |
+| `Shelter` | The destination for all `Victims` associated with an `Incident` |
 
 
 
