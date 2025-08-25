@@ -59,11 +59,22 @@ components:
     env:
     - name: HOME
       value: "/projects/home"
+events:
+  preStart:
+    - prep-workspace
 commands:
 - apply:
     component: prep-workspace
     label: Pre Start Prep
   id: prep-workspace
-events:
-  preStart:
-    - prep-workspace
+- id: init-workspace
+  exec:
+    workingDir: ${PROJECT_SOURCE}/scripts
+    commandLine: "./init.sh --init"
+    component: dev-tools
+- id: reset-workspace
+  exec:
+    workingDir: ${PROJECT_SOURCE}/scripts
+    commandLine: "./init.sh --reset"
+    component: dev-tools
+    

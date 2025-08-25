@@ -84,13 +84,19 @@ The goal of this operation is for `Responders` to complete `Missions` which move
 
 Let's build an app to help realize that goal.
 
-## The Domain Processes:
+## The Domain Activities:
 
 1. Register a `Disaster` with at least one `Impact Zone`.
 
+   The `Impact Zones` indicate the geographical boundaries for operation within the domain.
+
 1. Register one or more `Shelters` associated with an `Impact Zone`.
 
+   The `Shelters` within an `Impact Zone` are the locations of safety that `Responders` will transport `Victims` to.
+
 1. Register `Victims` for assistance.
+
+   One or more `Victims` are grouped into an `Incident` that a `Responder` will retrieve and transport to a `Shelter` in order to complete a `Mission`
 
 1. `Responders` indicate their availability to help `Victims`
 
@@ -120,6 +126,11 @@ A `Disaster` has the following entities:
 | --- | --- |
 | `Disaster` | A record of the active `Disasters` |
 | `Impact Zone` | A geographical region associated with a `Disaster` where `Incidents` are likely to be registered |
+| `Victim` | An individual impacted by the disaster and in need of rescue |
+| `Incident` | A grouping of one or more `Victims` |
+| `Responder` | A rescue team with the skills and resources to rescue `Victims` |
+
+The `Disaster` aggregate will have API endpoints for the management of `Disasters` and their related `Impact Zones`
 
 ### Shelter
 
@@ -139,7 +150,7 @@ The `Mission` aggregate has the following entities:
 
 | Entity | Description |
 | --- | --- |
-| `Mission` | A geographical region where `Incidents` are likely to be registered |
-| `Incident` | A facility that can accept `Victims` |
-| `Responder` | A rescue team with the skills and resources to rescue `Victims` |
-| `Victim` | An individual impacted by the disaster and in need of rescue |
+| `Mission` | An `Incident` associated with a Shelter.  The `Victims` associated with the `Incident` will be transported to the `Shelter` by a `Responder` |
+
+
+
