@@ -32,6 +32,6 @@
 		"workbench.preferredLightColorTheme": "Winter is Coming (Light)",
 		"editor.wordWrap": "on",
 		"files.autoSave": "off",
-		"roo-cline.autoImportSettingsPath": "~/roo-settings/roo-code-settings.json"
+		"roo-cline.autoImportSettingsPath": "/projects/roo-settings/roo-code-settings.json"
 	}
 }
