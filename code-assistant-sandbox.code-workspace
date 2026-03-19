@@ -22,9 +22,9 @@
 			"streetsidesoftware.code-spell-checker",
 			"johnpapa.winteriscoming",
 			"cnshenj.vscode-task-manager",
-			"continue.continue",
 			"rooveterinaryinc.roo-cline",
-			"onlyutkarsh.mermaid-diagram-lens"
+			"onlyutkarsh.mermaid-diagram-lens",
+			"sst-dev.opencode"
 		]
 	},
 	"settings": {
