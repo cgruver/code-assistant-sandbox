@@ -25,9 +25,11 @@ components:
     - name: SHELL
       value: "/bin/zsh"
     - name: HOME
-      value: "/projects/home"
+      value: "/projects"
     - name: VSCODE_DEFAULT_WORKSPACE
       value: "/projects/code-assistant-sandbox/code-assistant-sandbox.code-workspace"
+    - name: OPENCODE_CONFIG
+      value: /projects/.globalconfig/opencode.json
 - volume:
     size: 50Gi
   name: projects
