@@ -44,14 +44,13 @@ cat << EOF > /Library/LaunchDaemons/llama-server.plist
 </plist>
 EOF
 
-launchctl load /Library/LaunchDaemons/llama-server.plist
+launchctl remove system/qwen3-next
 
-launchctl start /Library/LaunchDaemons/llama-server.plist
-
-launchctl stop /Library/LaunchDaemons/llama-server.plist
-
-launchctl unload /Library/LaunchDaemons/llama-server.plist
+launchctl bootstrap system /Library/LaunchDaemons/llama-server-qwen3-next.plist
 ```
 
 llama-server --model ./models/devstral:24b --host 0.0.0.0 --n-gpu-layers 999 --flash-attn --ctx-size 131072 --jinja --no-prefill-assistant --verbose --reasoning-format none
 
+hf download Qwen/Qwen3-Coder-Next-GGUF Qwen3-Coder-Next-Q5_K_M/Qwen3-Coder-Next-Q5_K_M-00001-of-00004.gguf --local-dir /usr/local/models
+
+llama-server --model /usr/local/models/Qwen3-Coder-Next-Q5_K_M/Qwen3-Coder-Next-Q5_K_M-00001-of-00004.gguf --host 0.0.0.0 --n-gpu-layers 999 --ctx-size 262144 --jinja 
