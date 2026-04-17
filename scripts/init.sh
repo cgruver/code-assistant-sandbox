@@ -4,7 +4,7 @@ function InitWorkspace() {
   for i in disaster mission shelter
   do
     ./code-assistant-sandbox/scripts/bootstrap --create -a=${i} -g=org.cajun_navy --base
-    ln -s ${i} ./code-assistant-sandbox/${i}
+    ln -sf /projects/${i} /projects/code-assistant-sandbox/${i}
   done
 }
 
