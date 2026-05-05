@@ -22,10 +22,8 @@
 			"streetsidesoftware.code-spell-checker",
 			"johnpapa.winteriscoming",
 			"cnshenj.vscode-task-manager",
-			"rooveterinaryinc.roo-cline",
 			"onlyutkarsh.mermaid-diagram-lens",
-			"kilocode.kilo-code",
-			"sst-dev.opencode"
+			"kilocode.kilo-code"
 		]
 	},
 	"settings": {
