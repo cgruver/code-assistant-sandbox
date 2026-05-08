@@ -11,6 +11,8 @@ function InitWorkspace() {
 function ResetWorkspace() {
   cd /projects
   rm -rf disaster mission shelter
+  cd /projects/code-assistant-sandbox/
+  rm disaster mission shelter
   InitWorkspace
 }
 
