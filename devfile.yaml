@@ -30,6 +30,11 @@ components:
       value: "/projects/code-assistant-sandbox/code-assistant-sandbox.code-workspace"
     - name: OPENCODE_CONFIG
       value: /projects/.globalconfig/opencode.json
+    endpoints:
+      - exposure: none
+        name: kilo-service
+        protocol: tcp
+        targetPort: 4096
 - volume:
     size: 50Gi
   name: projects
