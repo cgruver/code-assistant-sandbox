@@ -13,6 +13,9 @@ projects:
         revision: main
 components:
 - name: dev-tools
+  attributes:
+    container-overrides:
+      imagePullPolicy: Always
   container:
     image: image-registry.openshift-image-registry.svc:5000/cekit-images/cajun-navy:latest
     # image: quay.io/cgruver0/che/workspace-base:latest

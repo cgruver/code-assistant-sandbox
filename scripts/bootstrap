@@ -40,6 +40,7 @@ function createQuarkusProject() {
       ;;
       -b|--base)
         addExtensions "${BASE_EXTENSIONS}"
+      ;;
       # -u=*|--git-url=*)
       #   GIT_URL="${i#*=}"
       # ;;
@@ -49,7 +50,7 @@ function createQuarkusProject() {
     esac
   done
 
-  JAVA_VER=${JAVA_VER:-21}
+  JAVA_VER=${JAVA_VER:-25}
 
   quarkus create app --maven --java=${JAVA_VER} --no-wrapper --no-code --package-name=${GROUP_ID}.${APP_NAME} --extensions=${EXTENSIONS} ${QUARKUS_VERSION} ${GROUP_ID}:${APP_NAME}:0.1
   
