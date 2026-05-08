@@ -27,11 +27,10 @@
 		]
 	},
 	"settings": {
-		"workbench.colorTheme": "Default Dark Modern",
+		"workbench.colorTheme": "Winter is Coming (Light)",
 		"workbench.preferredDarkColorTheme": "Winter is Coming (Dark Blue)",
 		"workbench.preferredLightColorTheme": "Winter is Coming (Light)",
 		"editor.wordWrap": "on",
-		"files.autoSave": "off",
-		"roo-cline.autoImportSettingsPath": "/projects/.globalconfig/roo-code-settings.json"
+		"files.autoSave": "off"
 	}
 }
