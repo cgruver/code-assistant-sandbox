@@ -23,7 +23,8 @@
 			"johnpapa.winteriscoming",
 			"cnshenj.vscode-task-manager",
 			"onlyutkarsh.mermaid-diagram-lens",
-			"kilocode.kilo-code"
+			"zoocodeorganization.zoo-code",
+			"sst-dev.opencode"
 		]
 	},
 	"settings": {
