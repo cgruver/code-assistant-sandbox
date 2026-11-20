@@ -17,7 +17,7 @@ components:
     container-overrides:
       imagePullPolicy: Always
   container:
-    image: image-registry.openshift-image-registry.svc:5000/cekit-images/cajun-navy:latest
+    image: image-registry.openshift-image-registry.svc:5000/workspace-images/cajun-navy:latest
     # image: quay.io/cgruver0/che/workspace-base:latest
     memoryLimit: 12Gi
     memoryRequest: 2Gi
@@ -41,32 +41,7 @@ components:
 - volume:
     size: 50Gi
   name: projects
-- name: prep-workspace
-  container:
-    args:
-      - '-c'
-      - >-
-        mkdir -p /projects/bin && cp /usr/bin/oc /projects/bin/oc && cp /usr/bin/kubectl /projects/bin/kubectl && if [[ -f ${HOME}/.kube/config ]]; then rm ${HOME}/.kube/config; fi
-    command:
-      - /bin/bash
-    image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
-    mountSources: true
-    sourceMapping: /projects
-    memoryRequest: 128Mi
-    memoryLimit: 256Mi
-    cpuRequest: 10m
-    cpuLimit: 200m
-    env:
-    - name: HOME
-      value: "/projects/home"
-events:
-  preStart:
-    - prep-workspace
 commands:
-- apply:
-    component: prep-workspace
-    label: Pre Start Prep
-  id: prep-workspace
 - id: init-workspace
   exec:
     workingDir: ${PROJECT_SOURCE}/scripts
